@@ -1,0 +1,28 @@
+.main-form {
+	padding-top: 1.5em;
+}
+
+.blink {
+	position: absolute;
+	display: inline-block;
+}
+
+@keyframes blinking {
+	0% { opacity: 0; }
+	100% { opacity: 1; }
+}
+
+.blink > * {
+	position: relative;
+	animation: 0.6s blinking ease-in-out infinite alternate;
+}
+
+#patternOutput {
+	background-color: rgb(13, 37, 12);
+	color: #65edff;
+	font-size: xx-small;
+	font-family: monospace;
+	line-height: 1;
+	letter-spacing: 0.4em;
+	min-height: 100px;
+}

@@ -1,0 +1,36 @@
+{
+  "name": "patterns-wasm",
+  "version": "1.0.0",
+  "description": "A pattern generator coded in C and used in a webpage using WebAssembly.",
+  "main": "index.html",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "make pattern && ./pattern.out",
+    "start": "lite-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "todo"
+  },
+  "keywords": [
+    "wasm",
+    "webassembly",
+    "pattern",
+    "c"
+  ],
+  "author": "Param Siddharth",
+  "license": "ISC",
+  "dependencies": {
+    "@popperjs/core": "^2.5.4",
+    "bootstrap": "^4.5.3",
+    "bootstrap-select": "^1.13.18",
+    "font-awesome": "^4.7.0",
+    "jquery": "^3.5.1",
+    "popper.js": "^1.16.1"
+  },
+  "devDependencies": {
+    "lite-server": "^2.5.4"
+  }
+}

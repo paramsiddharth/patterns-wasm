@@ -1,8 +1,65 @@
+<!DOCTYPE html>
 <html>
-	<body>
-		<script src='pattern.js'></script>
-		<script>
-			var pattern = Module.cwrap('pattern', 'string', ['string', 'number', 'string']);
-		</script>
+	<head>
+		<title>WebAssembly Pattern Generator</title>
+		<link rel='stylesheet' href='node_modules/bootstrap/dist/css/bootstrap.min.css'>
+		<link rel='stylesheet' href='node_modules/bootstrap-select/dist/css/bootstrap-select.min.css'>
+		<link rel='stylesheet' href='node_modules/font-awesome/css/font-awesome.min.css'>
+		<link rel='stylesheet' href='data/style.css'>
+		<link rel='shortcut icon' href='data/favicon.ico'>
+	</head>
+	<body class='bg-dark'>
+		<header class='navbar navbar-dark bg-primary'>
+			<a class='navbar-brand' href='/'>WebAssembly Pattern Generator</a>
+		</header>
+		<main class='container'>
+			<div class='row align-items-center mt-4'>
+				<div class='=col-12 col-md-8 offset-md-2 border border-primary rounded bg-light'>
+					<div class='main-form'>
+						<div class='text-center'>
+							<h3>WebAssembly Pattern Generator</h3>
+							<h5>A pattern generator coded entirely in C. <span class='blink'>&nbsp;<span>🤨</span></span></h5>	
+						</div>
+						<form onsubmit='generatePattern();'>
+							<div class='form-group'>
+								<label for='fill'>Fill symbol:</label>
+								<select class='selectpicker bg-primary form-control' data-style='btn-info' id='fill'>
+									<option selected>#</option>
+									<option>*</option>
+									<option>₹</option>
+									<option>=</option>
+									<option>0</option>
+									<option>Custom...</option>
+								</select>
+							</div>
+							<div class='form-group'>
+								<label for='size'>Size:</label>
+								<input min='1' max='999' type='number' id='size' class='form-control bg-secondary text-white' value='4'/>
+							</div>
+							<div class='form-group'>
+								<label for='patternType'>Pattern:</label>
+								<select class='selectpicker bg-primary form-control' data-style='btn-danger' id='patternType'>
+									<option selected>Square</option>
+									<option>Swastika</option>
+									<option>Right-Angled Triangle</option>
+									<option>Diamond</option>
+									<option>Six-Pointed Asterisk</option>
+								</select>
+							</div>
+							<div class='form-group'>
+								<label for='patternOutput'>Pattern:</label>
+								<textarea disabled id='patternOutput' class='form-control'>Aur bhai...</textarea>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</main>
+		<script src='node_modules/jquery/dist/jquery.min.js'></script>
+		<script src='node_modules/popper.js/dist/umd/popper.min.js'></script>
+		<script src='node_modules/bootstrap/dist/js/bootstrap.min.js'></script>
+		<script src='node_modules/bootstrap-select/dist/js/bootstrap-select.min.js'></script>
+		<script src='data/render.js'></script>
+		<script src='data/pattern.js'></script>
 	</body>
 </html>
