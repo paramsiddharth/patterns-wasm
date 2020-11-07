@@ -19,6 +19,13 @@
 	75% { color: rgb(255, 71, 224); }
 	100% { color: #65edff; }
 }
+@keyframes darker-colours {
+	0% { color: #1e089b; }
+	25% { color: rgb(194, 26, 0); }
+	50% { color: rgb(202, 0, 175); }
+	75% { color: rgb(187, 100, 0); }
+	100% { color:  #1e089b; }
+}
 
 .blink > * {
 	position: relative;
@@ -31,9 +38,37 @@
 	animation: 4s colours linear infinite;
 	text-shadow: 0 0 1px white;
 	font-size: medium;
-	overflow: hidden;;
+	overflow: hidden;
 	font-family: monospace;
 	line-height: 1;
 	letter-spacing: 0.4em;
 	min-height: 100px;
+}
+
+footer {
+	min-height: 50px;
+	width: 100%;
+	position: fixed;
+	font-size: larger;
+	bottom: 0;
+}
+
+footer .container {
+	position: absolute;
+	bottom: 60%;
+	left: 50%;
+	transform: translateX(-50%) translateY(50%);
+}
+
+.attribution > a {
+	color: pink;
+	text-shadow: 1px 1px 5px darkblue,
+				 1px -1px 5px darkblue,
+				 -1px -1px 5px darkblue,
+				 -1px 1px 5px darkblue;
+}
+
+.attribution > .fa-heart {
+	animation: 4s darker-colours linear infinite;
+	-webkit-text-stroke: 2px rgb(217, 255, 0);
 }
