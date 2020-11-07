@@ -6,6 +6,9 @@ var patterns = [
 	'diamond',
 	'asterisk'
 ];
+var symbols = [
+	'#', '*', '₹', '=', '0'
+];
 const DEFAULT_SIZE = 4;
 
 // Validate and return fill
@@ -40,7 +43,7 @@ function getSize() {
 // Validate and return pattern-type
 function getPatternType() {
 	let patternType = $('#patternType').prop('selectedIndex');
-	if (0 <= patternType && patternType < patterns.length)
+	if (0 <= patternType && patternType < symbols.length)
 		return patterns[patternType];
 	return patterns[0];
 }
@@ -69,16 +72,18 @@ Module = {
 
 			// Handle changing of parameters
 			$('#fill').on('change', function() {
-				if ($(this).val() === 'Custom...' && $(this).prop('selectedIndex') == patterns.length) {
+				if ($(this).val() === 'Custom...' && $(this).prop('selectedIndex') == symbols.length) {
 					let newFill = prompt('Enter a customized fill: ');
 					if (newFill.length > 0) {
 						$(this).removeClass('selectpicker');
 						$(this).children('option').last().remove();
 						$(this).append($('<option></option>').text(newFill));
 						$(this).append($('<option></option>').text('Custom...'));
-						patterns.push(newFill);
-						$(this).prop('selectedIndex', patterns.length - 1);
+						symbols.push(newFill);
+						$(this).prop('selectedIndex', symbols.length - 1);
 						$(this).selectpicker('refresh');
+					} else {
+						$(this).prop('selectedIndex', 0);
 					}
 				}
 				generatePattern();
