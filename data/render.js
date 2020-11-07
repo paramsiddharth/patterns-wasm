@@ -78,7 +78,7 @@ Module = {
 						$(this).append($('<option></option>').text('Custom...'));
 						patterns.push(newFill);
 						$(this).prop('selectedIndex', patterns.length - 1);
-						$(this).selectpicker();
+						$(this).selectpicker('refresh');
 					}
 				}
 				generatePattern();
