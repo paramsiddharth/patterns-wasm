@@ -91,6 +91,26 @@ Module = {
 				$('#size').val(getSize());
 			});
 			$('#patternType').on('change', generatePattern);
+
+			// Generate tooltips
+			window.smileyTooltip = new Tooltip($('.blink span'), {
+				placement: 'bottom',
+				trigger: 'hover',
+				offset: '0, 5px',
+				title: 'WebAssembly is the portable binary-code format I used to compile and run a C application in this webpage.',
+				template: '<div style="opacity: 1; width: 14em;" class="tooltip" role="tooltip"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div>'
+			});
+			window.swastikaTooltip = new Tooltip($('.swastika'), {
+				placement: 'top',
+				trigger: 'hover',
+				offset: '0, 5px',
+				title: 'Although infamously known in the West due to its use by Nazis, the Swastika is considered a sacred symbol of prosperity and good fortune in India since way back.',
+				template: '<div style="opacity: 1; width: 14em;" class="tooltip" role="tooltip"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div>'
+			});
+			$('.swastika').on({
+				mouseenter: function() { $(this).text('卐'); },
+				mouseleave: function() { $(this).text('?'); }
+			});
 		});
 	}
 };
