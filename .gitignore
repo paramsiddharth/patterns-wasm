@@ -1,5 +1,10 @@
 # Executables
 **/*.out
 **/*.exe
+
+# Directories
 test/
 node_modules/
+
+# Log file(s)
+*.log
