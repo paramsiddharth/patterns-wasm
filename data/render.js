@@ -23,6 +23,18 @@ function getFill() {
 	return fill;
 }
 
+// Validate and set size
+function setSize(size) {
+	try {
+		size = parseInt(size, 10);
+		if (size > 999)
+			size = 999;
+		if (size < 1)
+			size = 1;
+		$('#size').val(size);
+	} catch(e) { }
+}
+
 // Validate and return size
 function getSize() {
 	let size = $('#size').val();
@@ -101,12 +113,12 @@ Module = {
 			window.smileyTooltip = new Tooltip($('.blink span'), {
 				placement: 'bottom',
 				trigger: 'hover',
-				offset: '0, 5px',
+				offset: '60px, 5px',
 				title: 'WebAssembly is the portable binary-code format I used to compile and run a C application in this webpage.',
 				template: '<div style="opacity: 1; width: 14em;" class="tooltip" role="tooltip"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div>'
 			});
 			window.swastikaTooltip = new Tooltip($('.swastika'), {
-				placement: 'top',
+				placement: 'left',
 				trigger: 'hover',
 				offset: '0, 5px',
 				title: 'Although infamously known in the West due to its use by Nazis, the Swastika is considered a sacred symbol of prosperity and good fortune in India since way back.',
@@ -115,6 +127,18 @@ Module = {
 			$('.swastika').on({
 				mouseenter: function() { $(this).text('卐'); },
 				mouseleave: function() { $(this).text('?'); }
+			});
+
+			// Handle size increment and decrement
+			$('#size-inc').on('click', () => {
+				let size = $('#size').val();
+				setSize(parseInt(size, 10) + 1);
+				generatePattern();
+			});
+			$('#size-dec').on('click', () => {
+				let size = $('#size').val();
+				setSize(parseInt(size, 10) - 1);
+				generatePattern();
 			});
 		});
 	}
