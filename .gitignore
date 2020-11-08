@@ -5,6 +5,7 @@
 # Directories
 test/
 node_modules/
+.vscode/
 
 # Log file(s)
 *.log
