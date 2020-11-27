@@ -126,7 +126,11 @@ Module = {
 			});
 			$('.swastika').on({
 				mouseenter: function() { $(this).text('卐'); },
-				mouseleave: function() { $(this).text('?'); }
+				mouseleave: function() { $(this).text('?'); },
+				click: function() {
+					$('#patternType').prop('selectedIndex', 1).selectpicker('refresh');
+					generatePattern();
+				}
 			});
 
 			// Handle size increment and decrement
