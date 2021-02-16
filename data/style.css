@@ -1,3 +1,7 @@
+* {
+	user-select: none;
+}
+
 main {
 	margin-bottom: 50px;
 }
@@ -43,7 +47,6 @@ main {
 
 #size-btns {
 	z-index: 10;
-	display: inline-block;
 	float: right;
 }
 
@@ -69,6 +72,7 @@ main {
 	line-height: 1;
 	letter-spacing: 0.4em;
 	min-height: 100px;
+	user-select: text;
 }
 
 footer {
@@ -98,4 +102,19 @@ footer .container {
 .attribution > .fa-heart {
 	animation: 4s darker-colours linear infinite;
 	-webkit-text-stroke: 2px rgb(217, 255, 0);
+}
+
+
+input[type='number'] {
+	-moz-appearance: textfield;
+	cursor: default;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+}
+
+input::selection {
+	color: white;
 }
